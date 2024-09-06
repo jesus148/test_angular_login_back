@@ -1,0 +1,175 @@
+
+
+donde me quede  > 50:57
+(https://www.youtube.com/watch?v=XXMczd98pTY&lc=UgyawFLw5r7ySKIyzBd4AaABAg)
+
+leer : ojo 
+https://jwt.io/introduction
+
+
+======================creacion proyecto express- node 
+
+inicalizamos el proyecto
+1.
+  > PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npm init -y
+
+
+2.
+Instalamos de frente todo eso (tambien se puede)
+express : para usar express
+bcrypt : pa encriptar contraseñas
+cors : nucleos para diferenciar puertos tanto del front como del back
+dotenv : configurar las variables de entorno
+jsonwebtoken : nos permite crear el tokern
+sequelize  mysql2 : pa usar la bd 
+> PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npm install express bcrypt cors dotenv jsonwebtoken
+
+
+
+3 . https://sequelize.org/docs/v6/getting-started/ (documentacion de la bd)
+esto es para 
+Un ORM (Object Relational Mapping o Mapeo Objeto-Relacional en castellano) es una herramienta que nos permite convertir los objetos de tu aplicación a un formato adecuado.
+sequelize:
+// sequelize :
+// Sequelize es una biblioteca que le permite interactuar con varias bases de datos SQL utilizando JavaScript. Simplifica el proceso de creación, consulta, actualización y eliminación de datos de las tablas. En este artículo, aprenderá cómo usar Sequelize ORM en Node.
+   (no instalar ya lo hicimos en el paso 2)
+  npm install --save sequelize
+  npm install --save mysql2
+
+
+
+4. fijarte las dependencias en el packege.json
+  >
+     "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.0",
+    "sequelize": "^6.37.3"
+  }
+
+
+
+5. instalando typescritp
+   > https://www.typescriptlang.org/
+   > en el boton try typescritp now 
+   >on your computer
+
+   > hay 2 formas de forma local o global
+   > lo instalaremos de forma local osea en nuestro proyecto
+     PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npm install typescript --save-dev
+     > npx tsc (esto se hace mas adelante para crear un ts)
+
+
+
+
+ 6.   nodemon para mapear los cambios
+   https://www.npmjs.com/package/nodemon (doc)
+   > instalando paquete en forma de desarollo para el proyecto
+   > PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npm i nodemon --save-dev   
+
+
+
+ 7. nos crea un archivo de tsc de configuracion 
+  
+     > PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npx tsc --init  
+
+     > dirigite al tsconfig.json (que se genero)
+          (busca eso descomenta y agrega esto) 
+          "outDir": "./dist",                                   /* Specify an output folder for all emitted files. */
+     > de tal forma q genera una carpeta al transpilar
+
+
+
+ 8. 
+     crea una carpeta > src
+       ahi estara todo el proyecto
+
+
+ 9. 
+    > dentro del src (todos los files .tsc)
+       ejecutar este comando
+
+    > el npx es para instalar dependencias de forma facil sin tener q instalarlas   
+    > PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npx tsc     
+    > y transpilara todo el .tsc a .js en el folder dist
+
+
+
+10. en el cmd 
+  >esto mapeara el file con el nodemon para el servidor con node
+  > PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npx nodemon dist/index.js
+
+
+11 . en la terminal  poner esto 
+> esto debe ejecutarse cada vez que hagas un cambio en el .js o mantenlo ejecutandolo
+> PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npx tsc --watch 
+  mapeara cualquier cambio en el .ts y lo transpilara a .js automatico
+
+
+
+
+12. en el package.json ---- USANDO COMANDOS PERSONALIZADOS PARA EL PASO 10 Y EL 11
+    con estos comando se monitorea los cambio y ejecuta el server
+   USAR ESTO 2 PARA CORRER EL PROYECTO O SERVIDOR 
+    >  
+      "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon dist/index.js"  --- comando personalizado
+    "typescript" : "tsc --watch"   ---- comando personalizado
+  },
+     
+    > esto remplaza al paso 10 
+    > cuando ejecutes el proyecto sera con el comando 
+         npm run dev
+
+        > esto remplaza al paso 11 
+    > cuando ejecutes el proyecto sera con el comando 
+         npm run typescript     
+
+
+
+
+
+ 13. creacion de folder  
+    >dentro de src
+        > folder controllers
+            dentro crear files .ts
+        > folder db
+        > folder models
+           dentro crear files .ts
+        >folder routers
+             dentro crear files .ts
+    > folder server(general- proyecto q contiene todo) 
+       > file .env (las variables de entorno)  especifica el puerto en el que debería ejecutarse una aplicación.        
+
+
+
+ 14. instalar dependencia para usar .ts con express
+    PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npm i --save-dev @types/express      
+
+
+
+  15. Base de Datos 
+    > connection.ts 
+    > poner la conexion 
+     y crear una bd con el nombre , luego el proyecto lo crea solo las tablas   
+
+
+  16. para encriptar la contraseña 
+     > instalar 
+      PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npm i --save-dev @types/bcrypt
+
+
+  17. para generar un token 
+    > instalar
+    PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npm i --save-dev @types/jsonwebtoken
+     added 1 package, and audited 209 packages in 7s
+    
+
+ 18. instalando cors de angular 
+   > installar para junta las ruta de front y back y poder trabajr juntos
+   PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\back_mio\SERVER> npm i --save-dev @types/cors
+    added 1 package, and audited 210 packages in 2s   

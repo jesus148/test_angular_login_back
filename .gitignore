@@ -1,0 +1,7 @@
+
+# Ignorar la carpeta dist
+/dist
+
+# Ignorar archivos y carpetas node_modules
+/node_modules
+
