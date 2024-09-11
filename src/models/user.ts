@@ -6,8 +6,9 @@ import sequelize from '../db/connection';
 //  lo pondra en plural en users
 export const User = sequelize.define('user', {
     // tipos de datos en los atributos
+    //el id es autogenerado es automatico no ingresar
     id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER, //tipos de datos 
         primaryKey: true,
         autoIncrement: true
     },
@@ -20,4 +21,6 @@ export const User = sequelize.define('user', {
         type: DataTypes.STRING,
         allowNull: false
     }
-}, )
+} )
+
+// se crean 2 campos extras createAt , updateAt para mapear los registros y actualizaciones 
