@@ -20,7 +20,7 @@ import jwt from 'jsonwebtoken';
 //  body > raw > json 
 // {
 //     "nombre":"jesus",
-//     "password":"12234"
+//     "password":"admin1234"
 // }
 export const  newUser = async ( req : Request , res: Response ) =>{
 
@@ -123,7 +123,7 @@ export const  loginUser = async ( req : Request , res: Response ) =>{
         // clave secreta para asegurar que no pueda ser modificado por nadie más y desde q fue creado
         // esta firma garantiza el token 
     } , process.env.SECRET_KEY ||  'realmadrid123',{
-               expiresIn:  '10000'  //token enviado durara solo 10 seg(jugar con eso)
+               expiresIn:  '600'  //token enviado durara solo 10 seg(jugar con eso)
     });
 
 

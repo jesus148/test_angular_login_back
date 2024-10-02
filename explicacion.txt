@@ -155,7 +155,17 @@ sequelize:
   15. Base de Datos 
     > connection.ts 
     > poner la conexion 
-     y crear una bd con el nombre , luego el proyecto lo crea solo las tablas   
+     y crear una bd con el nombre rrhh , luego el proyecto lo crea solo las tablas   
+     ingresa data a la tabla products de manera manual , solo se lista 
+
+  > data para productos
+  > 1	| jesus	| arroz |	2024-01-01 23:59:59 |	2024-01-01 23:59:59
+
+
+
+
+
+
 
 
   16. para encriptar la contraseña 
