@@ -96,7 +96,7 @@ export const  loginUser = async ( req : Request , res: Response ) =>{
     const {username , password} = req.body;
 
 
-    // verificamos si existe en la bd
+    // verificamos si existe en la bd   
     // ponemos any pq cualqier tipo de dato o si no usar un clase modelo
     const user: any = await User.findOne({where : { username : username}})
     if(!user){
