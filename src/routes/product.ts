@@ -9,7 +9,7 @@ import validateToken from "./validate-token";
 // recordar q este routes se usara en el server 
 
 
-// para routear
+// para routear 
 const router= Router(); 
 
 // http://localhost:3001/api/products  --post
