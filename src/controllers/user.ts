@@ -117,23 +117,34 @@ export const  loginUser = async ( req : Request , res: Response ) =>{
     // generamos el token para lo use en futuras solicitudes.
     // pa enviar al cliente 
     const token = jwt.sign({
+        // header 
         username : username, //info del usuario o payload ,no poner datos confidenciales
 
         // clave secreta > or > .env(si no lo encuentra el otro el 2)
         // clave secreta para asegurar que no pueda ser modificado por nadie más y desde q fue creado
         // esta firma garantiza el token 
-    } , process.env.SECRET_KEY ||  'realmadrid123',{
-               expiresIn:  '600'  //token enviado durara solo 10 seg(jugar con eso)
-    });
+    } ,  process.env.SECRET_KEY || 'pepito123');
 
 
 
-        // datos de regreso al cliente 
+    // enviando como objeto el token 
+        // datos de regreso al cliente  en el front se tiene q desestructurar
     res.json({
         // > https://jwt.io/ 
         //  copia el token del response > y pegalo en el encode
+        // esto lo guarda como un objeto , en el front debe destructurarse 
         token
     })
+
+
+    // // enviando sin objeto el token 
+    // res.json(
+    //     // > https://jwt.io/ 
+    //     //  copia el token del response > y pegalo en el encode
+    //     // esto lo guarda como un objeto , en el front debe destructurarse 
+    //     token
+    // )
+
 
 }
 
